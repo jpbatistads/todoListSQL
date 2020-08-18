@@ -1,28 +1,25 @@
-/*Funções da aplicação*/
-
-const { response } = require("express");
+const Usuario = require("../models").Usuario
 
 /*Acesso ao banco,verificação etc..*/
 exports.listAll = (req, res) =>{
-    let usuarios = [
-        {
-            nome: "teste 01",
-            email: "teste01@mail.com"
-        },
-        
-        {
-            nome: "teste 02",
-            email: "teste02@mail.com"
-        }
-    ]
-    res.send(usuarios);
+   Usuario.findAll().then(usuarios=>{
+    res.send(usuarios);  
+   }).catch(error=>{
+       
+   })
+    
 }
 
 /*Função para criar os usuários (Exportes para ser enxergada)*/
 exports.createone = (req, res) =>{
-    let response = {
-        message: "Usuário criado com sucesso",
-        data: req.body
-    }
-    res.send(response)
+    console.log(Usuario)
+    const {nome,email} = req.body
+    Usuario.create({nome,email}).then(usuario=>{
+        res.send(usuario)
+    }).catch(error=>{
+        res.send(error)
+    })
+    
+    
+   
 }

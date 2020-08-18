@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js" 
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/jpbatistads/todoListSQL#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sequelize": "^6.3.4",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0"
   }
 }
